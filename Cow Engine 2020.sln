@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CowEngine", "CowEngine\CowEngine.csproj", "{60CA8874-14EB-4E57-A034-ACB55A5C4933}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Island Junkies", "Island Junkies\Island Junkies.csproj", "{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60CA8874-14EB-4E57-A034-ACB55A5C4933} = {60CA8874-14EB-4E57-A034-ACB55A5C4933}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{60CA8874-14EB-4E57-A034-ACB55A5C4933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CA8874-14EB-4E57-A034-ACB55A5C4933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60CA8874-14EB-4E57-A034-ACB55A5C4933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

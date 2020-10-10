@@ -1,12 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Raylib_cs;
+using CowEngine;
 
-namespace Island_Junkies.src
+namespace Island_Junkies
 {
-    class Main
+    class IslandJunkies
     {
+        public static void Main()
+        {
+            GameWindow game = new GameWindow(800, 480, "Test Game", Update, Draw);
+        }
+
+        private static void Update() { }
+
+        private static void Draw()
+        {
+            Raylib.DrawText("Hello World!", 12, 12, 20, Color.WHITE);
+        }
     }
 }
