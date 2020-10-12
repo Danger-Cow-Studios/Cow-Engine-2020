@@ -19,7 +19,10 @@ namespace CowEngine
         public Color WindowBackground;
 
         //GameControll
-        private List<GameObject> objects = new List<GameObject>();
+        private List<GameObject> MainSceneObjects = new List<GameObject>();
+        private List<GameScene> Scenes = new List<GameScene>();
+
+        public GameScene CurrentScene = null;
 
         public delegate void UpdateCall();
         public UpdateCall Update;
@@ -40,7 +43,8 @@ namespace CowEngine
 
             //Run gameloop, close gamewindow when finished
             while (!WindowShouldClose()) {
-                GameLoop();
+                if (CurrentScene == null) MainSceneGameLoop();
+                else CurrentScene.GameLoop();
             }
 
             CloseWindow();
@@ -48,32 +52,46 @@ namespace CowEngine
             return this;
         }
 
-        public GameObject AddObjectToStack(GameObject obj)
-        {
-            objects.Add(obj);
+        //>----IO----<
+        public GameScene SetCurrentScene(GameScene scn) {
+            if (CurrentScene != null && CurrentScene.DeleteWhenUnloaded) Scenes.Remove(CurrentScene);
+            CurrentScene = scn;
+            if (!Scenes.Contains(scn)) Scenes.Add(scn);
 
-            return obj;
+            CurrentScene.Parrent = this;
+            CurrentScene.Start();
+            return scn; 
         }
+        public GameScene RemoveSceneFromStack(GameScene scn) {
+            if (CurrentScene == scn) CurrentScene = null;
+            Scenes.Remove(scn);
+            return scn;
+        }
+        public GameObject AddObjectToStack(GameObject obj) { MainSceneObjects.Add(obj); return obj; }
+        public GameObject DeleteObjectFromStack(GameObject obj) { MainSceneObjects.Remove(obj); return obj; }
 
         #endregion
 
-        #region >----Virtual voids----<
+        #region >----Virtual methods----<
 
-        public virtual void GameLoop()
+        //TODO: optimse calls for gameobjects
+        public virtual void MainSceneGameLoop()
         {
             //Call update
             Update?.Invoke();
+            foreach (GameObject obj in MainSceneObjects) obj.Update();
 
             //Prepare to draw, call draw then stop drawing
-            PrepDraw();
+            PrepDraw(WindowBackground);
             Draw?.Invoke();
+            foreach (GameObject obj in MainSceneObjects) obj.Draw();
             EndDrawing();
         }
 
-        public virtual void PrepDraw()
+        public virtual void PrepDraw(Color clearColor)
         {
             BeginDrawing();
-            ClearBackground(WindowBackground);
+            ClearBackground(clearColor);
         }
 
         #endregion
@@ -91,103 +109,4 @@ namespace CowEngine
 
         #endregion
     }
-
-    /*
-     * OLD DISGUSTING CODE
-    public class GameWindow
-    {
-        public static GameWindow MainWindow;
-
-        public int Width, Height;
-        public string Name;
-
-        public Camera2D cam;
-        public bool UseCam = false;
-        public Vector2 Size;
-
-        public Color ClearColor;
-
-        public delegate void Update();
-        public Update UpdateCall;
-        public delegate void Draw();
-        public Draw DrawCall;
-
-        private List<GameObject> objects = new List<GameObject>();
-
-        public void Construct()
-        {
-            Raylib.InitWindow(Width, Height, Name);
-
-            Size = new Vector2(Width, Height);
-
-            //Game loop
-            while (!Raylib.WindowShouldClose())
-            {
-                //Call update event
-                foreach (GameObject obj in objects) { obj.Update(); }
-                UpdateCall?.Invoke();
-
-                //Call draw event
-                Raylib.BeginDrawing();
-                Raylib.ClearBackground(ClearColor);
-                if (UseCam) BeginMode2D(cam);
-
-                foreach (GameObject obj in objects) { obj.Draw(); }
-                DrawCall?.Invoke();
-
-                Raylib.EndDrawing();
-            }
-        }
-
-        public void SetCam(Camera2D cam)
-        {
-            this.cam = cam;
-            UseCam = true;
-        }
-
-        public GameObject StackGameObject(GameObject obj)
-        {
-            if (MainWindow == null) MainWindow = this;
-
-            objects.Add(obj);
-            return obj;
-        }
-
-        public GameWindow(int width, int height, string name, Update updateCall, Draw drawCall, Color clearColor)
-        {
-            if (MainWindow == null) MainWindow = this;
-
-            Width = width;
-            Height = height;
-            Name = name;
-            ClearColor = clearColor;
-
-            UpdateCall = updateCall;
-            DrawCall = drawCall;
-        }
-
-        public GameWindow(int width, int height, string name, Update updateCall, Draw drawCall)
-        {
-            if (MainWindow == null) MainWindow = this;
-
-            Width = width;
-            Height = height;
-            Name = name;
-            ClearColor = Color.BLACK;
-
-            UpdateCall = updateCall;
-            DrawCall = drawCall;
-        }
-
-        public GameWindow(int width, int height, string name)
-        {
-            if (MainWindow != null) MainWindow = this;
-
-            Width = width;
-            Height = height;
-            Name = name;
-            ClearColor = Color.BLACK;
-        }
-    }
-    */
 }

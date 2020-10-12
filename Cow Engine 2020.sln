@@ -8,7 +8,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Island Junkies", "Island Junkies\Island Junkies.csproj", "{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{60CA8874-14EB-4E57-A034-ACB55A5C4933} = {60CA8874-14EB-4E57-A034-ACB55A5C4933}
+		{7E0594DD-5077-495D-AA6D-C77358BD4C3A} = {7E0594DD-5077-495D-AA6D-C77358BD4C3A}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOXOX", "VOXOX\VOXOX.csproj", "{7E0594DD-5077-495D-AA6D-C77358BD4C3A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60CA8874-14EB-4E57-A034-ACB55A5C4933} = {60CA8874-14EB-4E57-A034-ACB55A5C4933}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CowEngineProjects", "CowEngineProjects", "{61D50198-6BF9-4D7C-9823-961366B9A51D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +32,10 @@ Global
 		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0594DD-5077-495D-AA6D-C77358BD4C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0594DD-5077-495D-AA6D-C77358BD4C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0594DD-5077-495D-AA6D-C77358BD4C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0594DD-5077-495D-AA6D-C77358BD4C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
