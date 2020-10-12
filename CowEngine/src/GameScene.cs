@@ -33,10 +33,16 @@ namespace CowEngine
             foreach (GameObject obj in Objects) obj.Update();
 
             //Prepare to draw, call draw then stop drawing
-            Parrent.PrepDraw(SceneBackground);
+            PrepDraw(SceneBackground);
             Draw();
             foreach (GameObject obj in Objects) obj.Draw();
             EndDrawing();
+        }
+
+        public virtual void PrepDraw(Color clearColor)
+        {
+            BeginDrawing();
+            ClearBackground(clearColor);
         }
 
         public virtual void Start() { }

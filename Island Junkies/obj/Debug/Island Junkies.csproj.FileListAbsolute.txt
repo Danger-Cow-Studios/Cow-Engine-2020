@@ -1,0 +1,18 @@
+D:\Cow Engine 2020\Island Junkies\bin\Debug\raylib.dll
+D:\Cow Engine 2020\Island Junkies\bin\Debug\Island Junkies.exe.config
+D:\Cow Engine 2020\Island Junkies\bin\Debug\Island Junkies.exe
+D:\Cow Engine 2020\Island Junkies\bin\Debug\Island Junkies.pdb
+D:\Cow Engine 2020\Island Junkies\bin\Debug\CowEngine.dll
+D:\Cow Engine 2020\Island Junkies\bin\Debug\Raylib-cs.dll
+D:\Cow Engine 2020\Island Junkies\bin\Debug\System.Numerics.Vectors.dll
+D:\Cow Engine 2020\Island Junkies\bin\Debug\VOXOX.dll
+D:\Cow Engine 2020\Island Junkies\bin\Debug\CowEngine.pdb
+D:\Cow Engine 2020\Island Junkies\bin\Debug\CowEngine.dll.config
+D:\Cow Engine 2020\Island Junkies\bin\Debug\VOXOX.pdb
+D:\Cow Engine 2020\Island Junkies\bin\Debug\VOXOX.dll.config
+D:\Cow Engine 2020\Island Junkies\bin\Debug\System.Numerics.Vectors.xml
+D:\Cow Engine 2020\Island Junkies\obj\Debug\Island Junkies.csprojAssemblyReference.cache
+D:\Cow Engine 2020\Island Junkies\obj\Debug\Island Junkies.csproj.CoreCompileInputs.cache
+D:\Cow Engine 2020\Island Junkies\obj\Debug\Island Junkies.csproj.CopyComplete
+D:\Cow Engine 2020\Island Junkies\obj\Debug\Island Junkies.exe
+D:\Cow Engine 2020\Island Junkies\obj\Debug\Island Junkies.pdb

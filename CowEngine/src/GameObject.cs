@@ -16,7 +16,7 @@ namespace CowEngine
             transform = new io.Transform(x, y, sx, sy);
         }
 
-        public virtual int Update() { return 1; }
-        public virtual int Draw() { return 1; }
+        public virtual void Update() { }
+        public virtual void Draw() { }
     }
 }

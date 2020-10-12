@@ -71,6 +71,10 @@
       <Project>{60ca8874-14eb-4e57-a034-acb55a5c4933}</Project>
       <Name>CowEngine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VOXOX\VOXOX.csproj">
+      <Project>{7E0594DD-5077-495D-AA6D-C77358BD4C3A}</Project>
+      <Name>VOXOX</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="raylib.dll">

@@ -6,10 +6,9 @@ namespace Island_Junkies.obj
 {
     class Block : GameObject
     {
-        public override int Draw()
+        public override void Draw()
         {
             Raylib.DrawRectangle(transform.x, transform.y, transform.sx, transform.sy, Color.RED);
-            return 1;
         }
 
         public Block(int x, int y)
