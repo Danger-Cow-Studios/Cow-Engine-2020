@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOXOX", "VOXOX\VOXOX.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CowEngineProjects", "CowEngineProjects", "{61D50198-6BF9-4D7C-9823-961366B9A51D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CowEngineGames", "CowEngineGames", "{B6474F4B-0BCF-4601-8286-9664C3E7E9FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{60CA8874-14EB-4E57-A034-ACB55A5C4933} = {61D50198-6BF9-4D7C-9823-961366B9A51D}
+		{4AF906ED-4F1A-4B3C-9528-CB95E34F473F} = {B6474F4B-0BCF-4601-8286-9664C3E7E9FF}
+		{7E0594DD-5077-495D-AA6D-C77358BD4C3A} = {61D50198-6BF9-4D7C-9823-961366B9A51D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3190CDC3-A25B-42A0-8EBF-CA386C759FA8}
