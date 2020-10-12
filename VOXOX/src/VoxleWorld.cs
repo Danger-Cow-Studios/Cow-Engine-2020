@@ -1,5 +1,6 @@
 ﻿using CowEngine;
 using Raylib_cs;
+using System;
 using System.Numerics;
 using static Raylib_cs.Raylib;
 
@@ -23,8 +24,10 @@ namespace VOXOX
 
         public override void Update()
         {
-            Camera.target = FocusCameraToCenterCords(new Vector2(0, 0), 30);
-            Camera.zoom = 30;
+            Camera.zoom = Math.Min(Math.Max(Camera.zoom + GetMouseWheelMove() * 5f, 5), 100);
+
+            Camera.target = FocusCameraToCenterCords(new Vector2(0, 0), Camera.zoom);
+            Camera.offset = new Vector2(-Camera.zoom / 2, -Camera.zoom / 2);
         }
 
         public override void PrepDraw(Color clearColor)
@@ -36,6 +39,9 @@ namespace VOXOX
 
         public VoxleWorld(int WorldWidth, int WorldHeight, IslandGenerator gen = null)
         {
+            if (WorldWidth % 2 != 0) WorldWidth++;
+            if (WorldHeight % 2 != 0) WorldHeight++;
+
             MaxDimentions = new Vector2(WorldWidth, WorldHeight);
             WorldData = new Block[WorldWidth, WorldHeight];
 
