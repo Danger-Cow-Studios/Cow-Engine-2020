@@ -15,7 +15,7 @@ namespace Island_Junkies
             Block b = new Block(x, y);
 
             Resualt[x, y] = b;
-            GameWindow.MainWindow.StackGameObject(b);
+            GameWindow.MainWindow.AddObjectToStack(b);
 
             return Resualt;
         }

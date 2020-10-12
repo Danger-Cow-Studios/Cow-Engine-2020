@@ -12,17 +12,13 @@ namespace Island_Junkies
 
         public static void Main()
         {
-            game = new GameWindow(800, 480, "Island Junkies", null, Update);
-            gameWorld = new World(1000, 256);
-
-            game.Construct();
-            game.SetCam(gameWorld.Cam);
+            game = new GameWindow(new Vector2(800, 480), "test", Color.BLACK);
+            game.Open();
         }
 
         private static void Update()
         {
-            gameWorld.CenterCam(game.Size, 0, 0, 40);
-            game.SetCam(gameWorld.Cam);
+            
         }
     }
 }

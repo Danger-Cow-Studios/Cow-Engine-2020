@@ -2,11 +2,98 @@
 using static Raylib_cs.Raylib;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Runtime.Remoting.Messaging;
 
 namespace CowEngine
 {
     //Window and basic game loop of a cow engine game
+    public class GameWindow
+    {
+        #region >----Varibles and settings----<
+        //The first constructed window
+        public static GameWindow MainWindow;
 
+        //Window settings
+        public Vector2 WindowSize;
+        public string WindowName;
+        public Color WindowBackground;
+
+        //GameControll
+        private List<GameObject> objects = new List<GameObject>();
+
+        public delegate void UpdateCall();
+        public UpdateCall Update;
+        public delegate void DrawCall();
+        public DrawCall Draw;
+        #endregion
+
+        #region >----Methods----<
+
+        /// <summary>
+        /// Create window and run game
+        /// </summary>
+        /// <returns>This game window</returns>
+        public GameWindow Open()
+        {
+            //Create window with raylib
+            InitWindow((int)WindowSize.X, (int)WindowSize.Y, WindowName);
+
+            //Run gameloop, close gamewindow when finished
+            while (!WindowShouldClose()) {
+                GameLoop();
+            }
+
+            CloseWindow();
+
+            return this;
+        }
+
+        public GameObject AddObjectToStack(GameObject obj)
+        {
+            objects.Add(obj);
+
+            return obj;
+        }
+
+        #endregion
+
+        #region >----Virtual voids----<
+
+        public virtual void GameLoop()
+        {
+            //Call update
+            Update?.Invoke();
+
+            //Prepare to draw, call draw then stop drawing
+            PrepDraw();
+            Draw?.Invoke();
+            EndDrawing();
+        }
+
+        public virtual void PrepDraw()
+        {
+            BeginDrawing();
+            ClearBackground(WindowBackground);
+        }
+
+        #endregion
+
+        #region >----Constructors----<
+
+        public GameWindow(Vector2 size, string name, Color backgroundColor, UpdateCall globalUpdate = null, DrawCall globalDraw = null)
+        {
+            WindowSize = size;
+            WindowName = name;
+            WindowBackground = backgroundColor;
+            Update = globalUpdate;
+            Draw = globalDraw;
+        }
+
+        #endregion
+    }
+
+    /*
+     * OLD DISGUSTING CODE
     public class GameWindow
     {
         public static GameWindow MainWindow;
@@ -102,4 +189,5 @@ namespace CowEngine
             ClearColor = Color.BLACK;
         }
     }
+    */
 }
